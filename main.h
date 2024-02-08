@@ -9,7 +9,7 @@
 typedef struct format
 {
 	char *id;
-	int (*f)(const char *);
+	int (*f)(void *);
 }format_struct;
 
 

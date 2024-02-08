@@ -24,26 +24,11 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 
 	if (format == NULL || (format[i] == '%' && format[i + 1] == '\0'))
-		return (0);
-
-here:
-	while (*format != '\0')
 	{
-		current = va_arg(args, const char *);
-		while (j < 2)
-		{
-			if (format_var[j].id[0] == format[i] && format_var[j].id[1] == format[i + 1])
-			{
-				length += format_var[j].f(current);
-				i += 2;
-				goto here;
-			}
-			j++;
-		}
-		_putchar(format[i]);
-		i++;
-		j = 0;
-		length++;
+		return (0);
 	}
+
+	
+
 	return (length);
 }
