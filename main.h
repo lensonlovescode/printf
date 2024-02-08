@@ -18,6 +18,8 @@ int _printf(const char *format, ...);
 int _putchar(char ch);
 int print_str(const char *str);
 int print_char(const char *c);
+int print_int(const char *num);
+int print_int_two(const char *num);
 int _strlenc(const char *str);
 int _strlen(char *str);
 
