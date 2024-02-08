@@ -9,7 +9,9 @@ int _printf(const char *format, ...)
 {
 	format_struct format_var[] = {
 		{"%c", print_char},
-		{"%s", print_str}
+		{"%s", print_str},
+		{"%d", print_int},
+		{"i", print_int_two}
 	};
 
 	const char *current;
@@ -30,7 +32,7 @@ here:
 	while (*format != '\0')
 	{
 		current = va_arg(args, const char *);
-		while (j < 2)
+		while (j < 4)
 		{
 			if (format_var[j].id[0] == format[i] && format_var[j].id[1] == format[i + 1])
 			{
