@@ -7,45 +7,29 @@
  */
 int _printf(const char *format, ...)
 {
-	format_struct format_var[] = {
-		{"%c", print_char},
-		{"%s", print_str},
-		{"%d", print_int},
-		{"i", print_int_two}
-	};
-
-	const char *current;
-	int j;
 	int i;
-	va_list args;
+	int idx;
 	int length;
+	va_list args;
 
 	i = 0;
-	j = 0;
-	length = 0;
+	idx = i + 1;
 	va_start(args, format);
-
-	if (format == NULL || (format[i] == '%' && format[i + 1] == '\0'))
-		return (0);
-
-here:
-	while (*format != '\0')
+	
+	while (format[i] != '\0')
 	{
-		current = va_arg(args, const char *);
-		while (j < 4)
+		if (format[i] == "%")
 		{
-			if (format_var[j].id[0] == format[i] && format_var[j].id[1] == format[i + 1])
+			while (!(format[idx] >= 'a' && format[idx] <= 'z'))
 			{
-				length += format_var[j].f(current);
-				i += 2;
-				goto here;
+				idx++;
 			}
-			j++;
+			length += get_func(format, args, (idx));
 		}
 		_putchar(format[i]);
-		i++;
-		j = 0;
 		length++;
+		i++;
 	}
+
 	return (length);
 }
