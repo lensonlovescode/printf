@@ -9,22 +9,30 @@
 int get_func(const char *format_str, va_list args, int index)
 {
 	format_struct format_var[] = {
-		{"c", print_char},
-		{"s", print_str},
-		{"d", print_int},
-		{"i", print_int_two}
+		{'c', print_char},
+		{'s', print_str},
+		{'d', print_int},
+		{'i', print_int_two}
 	};
 	int j;
 	int length;
 
+	if (format_str == NULL)
+	{
+		return (-1);
+	}
+
 	j = 0;
+	length = 0;
 
 	while (j < 4)
 	{
-		if (format_var[j] == format_str[index])
+		if (format_var[j].id == format_str[index])
 		{
 			length += format_var[j].f(args);
+			break;
 		}
+		j++;
 	}
 	return (length);
 }
