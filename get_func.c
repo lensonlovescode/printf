@@ -11,8 +11,11 @@ int get_func(const char *format_str, va_list args, int index)
 	format_struct format_var[] = {
 		{'c', print_char},
 		{'s', print_str},
+		{'%', print_percent}
+		/**
 		{'d', print_int},
 		{'i', print_int_two}
+		*/
 	};
 	int j;
 	int length;
@@ -25,7 +28,7 @@ int get_func(const char *format_str, va_list args, int index)
 	j = 0;
 	length = 0;
 
-	while (j < 4)
+	while (j < 3)
 	{
 		if (format_var[j].id == format_str[index])
 		{

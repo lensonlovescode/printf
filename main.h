@@ -8,18 +8,20 @@
 
 typedef struct format
 {
-	char *id;
+	char id;
 	int (*f)(va_list args);
 }format_struct;
 
 
 int _printf(const char *format, ...);
+int get_func(const char *format_str, va_list args, int index);
 
 int _putchar(char ch);
 int print_str(va_list args);
-int print_char(va_list args); // note for sharon - adjust the parameters for your functions
-int print_int(const char *num); // <<--
-int print_int_two(const char *num); // <<--
+int print_char(va_list args);
+int print_percent(va_list args __attribute__((unused)));
+/**int print_int(const char *num);
+int print_int_two(const char *num);**/
 int _strlenc(const char *str);
 int _strlen(char *str);
 

@@ -12,11 +12,11 @@ int _putchar(char ch)
  * @param ch The character to be printed.
  * @return The number of characters printed (always 1).
  */
-int print_char(const char *c)
+int print_char(va_list args)
 {
 	char ch;
 
-	ch = *c;
+	ch = va_arg(args, int);
 
 	_putchar(ch);
 	return (1);
@@ -27,10 +27,12 @@ int print_char(const char *c)
  * @param str The null-terminated string to be printed.
  * @return The number of characters printed.
  */
-int print_str(const char *str)
+int print_str(va_list args)
 {
 	int count;
+	char *str;
 
+	str = va_arg(args, char *);
 	count = 0;
 
 	while (*str != '\0')
@@ -41,12 +43,17 @@ int print_str(const char *str)
 	}
 	return (count);
 }
+int print_percent(va_list args __attribute__((unused)))
+{
+	_putchar('%');
+	return (1);
+}
 /**
  * print_int - prints an integer
  * @num: the integer to be printed
  * Return: number of characters printed
  */
-int print_int(const char *num)
+/**int print_int(const char *num)
 {
 	int count;
 
@@ -55,12 +62,13 @@ int print_int(const char *num)
 	//use putchar to print the integer then increment cunt
 	return (count);
 }
+*/
 /**
  * print_int_two - prints an integer
  * @num: the integer to be printed
  * Return: number of characters printed
  */
-int print_int_two(const char *num)
+/*int print_int_two(const char *num)
 {
 	int count;
 
@@ -70,4 +78,4 @@ int print_int_two(const char *num)
 	return (count);
 
 
-}
+}*/

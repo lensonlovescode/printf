@@ -10,9 +10,19 @@ int main(void)
 
 	length1 = _printf("Let's try to printf a simple sentence.\n");
 	length2 = printf("Let's try to printf a simple sentence.\n");
-	_printf("Character:[%c]\n", 'H');
 
-	printf("Character:[%c]\n", 'H');
+	printf("length1 = %d\n", length1);
+	printf("length2 = %d\n", length2);
+
+	length1 = _printf("Character:[%c]\n", 'H');
+	length2 = printf("Character:[%c]\n", 'H');
+
+	printf("length1 = %d\n", length1);
+	printf("length2 = %d\n", length2);
+
+	length1 = _printf("Percent:[%%]\n");
+	length2 = printf("Percent:[%%]\n");
+
 	printf("length1 = %d\n", length1);
 	printf("length2 = %d\n", length2);
 
