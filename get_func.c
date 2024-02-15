@@ -8,14 +8,15 @@
  */
 int get_func(const char *format_str, va_list args, int index)
 {
-	format_struct format_var[] = {
+	format_struct format_var[] = 
+	{
 		{'c', print_char},
 		{'s', print_str},
-		{'%', print_percent}
-		/**
+		{'%', print_percent},
 		{'d', print_int},
-		{'i', print_int_two}
-		*/
+		{'i', print_int_two},
+		{'u', print_uint},
+		{'0', print_octal }
 	};
 	int j;
 	int length;
