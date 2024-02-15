@@ -52,6 +52,5 @@ int _printf(const char *format, ...)
 			i++;
 		}
 	}
-
 	return (length);
 }
