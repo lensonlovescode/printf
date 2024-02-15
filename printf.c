@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			idx = i + 1;
-			while (!(format[idx] >= 'a' && format[idx] <= 'z') && format[idx] != ' ' && format[idx] != '%')
+			while (!(format[idx] >= 'a' && format[idx] <= 'z') && format[idx] != ' ' && format[idx] != '%' && format[idx] != 'X')
 			{
 				if (format[idx] == '\0')
 				{
