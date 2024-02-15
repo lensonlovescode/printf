@@ -13,6 +13,9 @@ int get_func(const char *format_str, va_list args, int index)
 		{'c', print_char},
 		{'s', print_str},
 		{'%', print_percent},
+		{'b', print_binary},
+		{'x', print_hexa}, 
+		{'X', print_hexa_upper},
 		{'d', print_int},
 		{'i', print_int_two},
 		{'u', print_uint},
@@ -29,7 +32,7 @@ int get_func(const char *format_str, va_list args, int index)
 	j = 0;
 	length = 0;
 
-	while (j < 3)
+	while (j < 6)
 	{
 		if (format_var[j].id == format_str[index])
 		{
