@@ -182,14 +182,15 @@ int print_int(va_list args)
 {
     int num = va_arg(args, int);
     int is_negative = 0; 
+    int count = 0; 
+    int digits[20] = {0}; 
+    unsigned int digit_index = 0;
     if (num < 0) 
 	{
         num = -num;
         is_negative = 1;
     }
-	int count = 0; 
-    int digits[20]; 
-    int digit_index = 0;
+	
 	while (num > 0) 
 	{
         if (digit_index >= sizeof(digits) / sizeof(digits[0])) 
@@ -220,14 +221,15 @@ int print_int_two(va_list args)
 {
     int num = va_arg(args, int);
     int is_negative = 0; 
+    int count = 0; 
+    int digits[20]; 
+    unsigned int digit_index = 0;
 	if (num < 0)
 	{
         num = -num;
         is_negative = 1;
     }
-	int count = 0; 
-    int digits[20]; 
-    int digit_index = 0;
+	
 	while (num > 0) 
 	{
         if (digit_index >= sizeof(digits) / sizeof(digits[0])) 
@@ -258,8 +260,8 @@ int print_uint(va_list args)
  {
     unsigned int num = va_arg(args, unsigned int);
     int count = 0;
-    int digits[20]; 
-    int digit_index = 0;
+    int digits[20] = {0}; 
+    unsigned int digit_index = 0;
 
     while (num > 0) 
 	{
@@ -286,8 +288,8 @@ int print_octal(va_list args)
 {
     unsigned int num = va_arg(args, unsigned int);
     int count = 0;
-    int digits[20]; 
-    int digit_index = 0;
+    int digits[20] = {0}; 
+    unsigned int digit_index = 0;
 
     while (num > 0) 
 	{
