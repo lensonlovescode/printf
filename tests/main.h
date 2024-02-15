@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <limits.h>
 
 typedef struct format
 {
@@ -20,6 +21,10 @@ int _putchar(char ch);
 int print_str(va_list args);
 int print_char(va_list args);
 int print_percent(va_list args __attribute__((unused)));
+int print_binary(va_list args);
+int print_hexa(va_list args);
+int print_hexa_upper(va_list args);
+int get_significant_digits(unsigned int num);
 /**int print_int(const char *num);
 int print_int_two(const char *num);*/
 int _strlenc(const char *str);
