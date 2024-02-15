@@ -20,8 +20,10 @@ int _putchar(char ch);
 int print_str(va_list args);
 int print_char(va_list args);
 int print_percent(va_list args __attribute__((unused)));
-/**int print_int(const char *num);
-int print_int_two(const char *num);**/
+int print_int_two(va_list args);
+int print_int(va_list args);
+int print_uint(va_list args);
+int print_octal(va_list args);
 int _strlenc(const char *str);
 int _strlen(char *str);
 
