@@ -185,6 +185,7 @@ int print_int(va_list args)
     int count = 0; 
     int digits[20] = {0}; 
     unsigned int digit_index = 0;
+    int i;
     if (num < 0) 
 	{
         num = -num;
@@ -205,7 +206,7 @@ int print_int(va_list args)
         _putchar('-');
         count++;
     }
-    for (int i = digit_index - 1; i >= 0; i--) 
+    for (i = digit_index - 1; i >= 0; i--) 
 	{
         _putchar(digits[i] + '0');
         count++;
@@ -224,6 +225,7 @@ int print_int_two(va_list args)
     int count = 0; 
     int digits[20]; 
     unsigned int digit_index = 0;
+    int i;
 	if (num < 0)
 	{
         num = -num;
@@ -244,7 +246,7 @@ int print_int_two(va_list args)
         _putchar('-');
         count++;
     }
-    for (int i = digit_index - 1; i >= 0; i--) 
+    for (i = digit_index - 1; i >= 0; i--) 
 	{
         _putchar(digits[i] + '0');
         count++;
@@ -262,7 +264,7 @@ int print_uint(va_list args)
     int count = 0;
     int digits[20] = {0}; 
     unsigned int digit_index = 0;
-
+    int i;
     while (num > 0) 
 	{
         if (digit_index >= sizeof(digits) / sizeof(digits[0])) 
@@ -272,7 +274,7 @@ int print_uint(va_list args)
         digits[digit_index++] = num % 10;
         num /= 10;
     }
-    for (int i = digit_index - 1; i >= 0; i--)
+    for (i = digit_index - 1; i >= 0; i--)
 	 {
         _putchar(digits[i] + '0');
         count++;
@@ -290,7 +292,7 @@ int print_octal(va_list args)
     int count = 0;
     int digits[20] = {0}; 
     unsigned int digit_index = 0;
-
+    int i;
     while (num > 0) 
 	{
          if (digit_index >= sizeof(digits) / sizeof(digits[0])) 
@@ -300,7 +302,7 @@ int print_octal(va_list args)
         digits[digit_index++] = num % 8; 
         num /= 8;
     }
-    for (int i = digit_index - 1; i >= 0; i--) 
+    for (i = digit_index - 1; i >= 0; i--) 
 	{
         _putchar(digits[i] + '0');
         count++;
