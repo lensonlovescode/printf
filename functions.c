@@ -309,3 +309,21 @@ int print_octal(va_list args)
     }
 	return count;
 }
+/**
+ *
+ *
+ *
+ *
+ * Return: returns 1 if idx is a specifyer, 0 if not
+ */
+int conditions(const char *format, int idx)
+{
+	if (!(format[idx] >= 'a' && format[idx] <= 'z') && format[idx] != ' ' && format[idx] != '%' && format[idx] != 'X')
+	{
+		return (0);
+	}
+	else
+	{
+		return (1);
+	}
+}

@@ -30,5 +30,6 @@ int print_uint(va_list args);
 int print_octal(va_list args);
 int _strlenc(const char *str);
 int _strlen(char *str);
+int conditions(const char *formart, int idx);
 
 #endif

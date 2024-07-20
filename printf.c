@@ -12,7 +12,10 @@ int _printf(const char *format, ...)
 	int idx;
 	int length;
 	va_list args;
-
+	/**
+	char buffer[1024];
+	int buffer_size;
+	*/
 	if (format == NULL)
 	{
 		return (-1);
@@ -29,7 +32,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			idx = i + 1;
-			while (!(format[idx] >= 'a' && format[idx] <= 'z') && format[idx] != ' ' && format[idx] != '%' && format[idx] != 'X')
+			while (conditions(format, idx) == 0)
 			{
 				if (format[idx] == '\0')
 				{
@@ -44,13 +47,22 @@ int _printf(const char *format, ...)
 			}
 			length += result;
 			i = idx + 1;
+			/**
+			buffer_index = length + 1;
+			*/
 		}
 		else
 		{
 			_putchar(format[i]);
+			/**
+			buffer[i] = format[i];
+			*/
 			length++;
 			i++;
 		}
 	}
+	/**
+	write(1, buffer, buffer_index);
+	*/
 	return (length);
 }
