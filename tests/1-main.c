@@ -52,7 +52,9 @@ int main(void)
 	length2 = printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 
 	printf("length one: %d\n", length1);
-	printf("length two: %d\n", length2);
+	printf("length two: %d\n\n", length2);
+
+	_printf("End of test >>>\n\n");
 
 	return (0);
 }
