@@ -58,25 +58,29 @@ int print_percent(va_list args __attribute__((unused)))
 int print_binary(va_list args)
 {
         unsigned int num;
-        int length, size, bit, i;
-        int significant = 0;
+        int length, size, bit, i, significant;
 
-        size = sizeof(unsigned int) * 8;
-        length = 0;
-        num = va_arg(args, unsigned int);
+	size = sizeof(unsigned int) * 8;
+	length = 0;
+	significant = 0;
+	num = va_arg(args, unsigned int);
 
-        for (i = size - 1; i >= 0; i--)
-        {
-                bit = (num >> i) & 1;
-                if (bit || significant)
-                {
-                        _putchar(bit + '0');
-                        length++;
-                        significant = 1;
-                }
-        }
-
-        return (length);
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	for (i = size - 1; i >= 0; i--)
+	{
+		bit = (num >> i) & 1;
+		if (bit || significant)
+		{
+			_putchar(bit + '0');
+			length++;
+			significant = 1;
+		}
+	}
+	return (length);
 }
 /**
  * print_hexa - Prints the hexadecimal representation of an unsigned int in lowercase.
@@ -125,36 +129,38 @@ int print_hexa(va_list args)
  */
 int print_hexa_upper(va_list args)
 {
-    unsigned int num;
-    int length, significant_digits, bit, i;
+	unsigned int num;
+	int length, significant_digits, bit, i;
 
-    num = va_arg(args, unsigned int);
-    length = 0;
-    significant_digits = 0;
+	num = va_arg(args, unsigned int);
+	length = 0;
+	significant_digits = 0;
 
-    if (num == 0)
-    {
-        _putchar('0');
-        return (1);
-    }
-
-    significant_digits = get_significant_digits(num);
-
-    for (i = (significant_digits - 1) * 4; i >= 0; i -= 4)
-    {
-        bit = (num >> i) & 0xF;
-        if (bit > 9)
-        {
-            _putchar(bit + 'A' - 10);
-        }
-        else
-        {
-            _putchar(bit + '0');
-        }
-        length++;
-    }
-
-    return (length);
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	if (num == 0)
+	{
+		_putchar('0');
+		return 1;
+	}
+	significant_digits = get_significant_digits(num);
+	for (i = (significant_digits - 1) * 4; i >= 0; i -= 4)
+	{
+		bit = (num >> i) & 0xF;
+		if (bit > 9)
+		{
+			_putchar(bit + 'A' - 10);
+		}
+		else
+		{
+			_putchar(bit + '0');
+		}
+		length++;
+	}
+	return (length);
 }
 
 /**
