@@ -12,20 +12,13 @@ int _printf(const char *format, ...)
 	int idx;
 	int length;
 	va_list args;
-	/**
-	char buffer[1024];
-	int buffer_size;
-	*/
-	if (format == NULL)
-	{
-		return (-1);
-	}
 
+	if (format == NULL)
+		return (-1);
 	i = 0;
 	idx = i + 1;
 	length = 0;
 	va_start(args, format);
-
 
 	while (format[i] != '\0')
 	{
@@ -35,34 +28,22 @@ int _printf(const char *format, ...)
 			while (conditions(format, idx) == 0)
 			{
 				if (format[idx] == '\0')
-				{
 					return (-1);
-				}
 				idx++;
 			}
 			result = get_func(format, args, (idx));
 			if (result == -1)
-			{
 				return (-1);
-			}
 			length += result;
 			i = idx + 1;
-			/**
-			buffer_index = length + 1;
-			*/
 		}
 		else
 		{
 			_putchar(format[i]);
-			/**
-			buffer[i] = format[i];
-			*/
 			length++;
 			i++;
 		}
 	}
-	/**
-	write(1, buffer, buffer_index);
-	*/
+	va_end(args);
 	return (length);
 }

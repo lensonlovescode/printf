@@ -6,11 +6,9 @@
  */
 int main(void)
 {
-	unsigned int num1, num2, ui, err_num;
+	unsigned int num1, num2, ui;
 	char *str1, *str2;
 	int length1, length2;
-
-	err_num = 89;
 
 	length1 = _printf("Let's try to printf a simple sentence without specifyer\n");
 	length2 = printf("Let's try to printf a simple sentence without specifyer\n");
@@ -18,7 +16,7 @@ int main(void)
 	printf("length one = %d\n", length1);
 	printf("length two = %d\n", length2);
 
-	length1 = _printf("Single character:[%c]\n error? : [%s]", 'H', err_num);
+	length1 = _printf("Single character:[%c]\n", 'H');
 	length2 = printf("Single character:[%c]\n", 'H');
 
 	printf("length one = %d\n", length1);
