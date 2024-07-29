@@ -111,6 +111,11 @@ int print_int(va_list args)
 	unsigned int digit_index = 0;
 	int i;
 
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	if (num < 0)
 	{
 		num = -num;
@@ -144,13 +149,18 @@ int print_int(va_list args)
  */
 int print_int_two(va_list args)
 {
-	int num = va_arg(args, int);
+	long int num = va_arg(args, int);
 	int is_negative = 0;
 	int count = 0;
 	int digits[20];
 	unsigned int digit_index = 0;
 	int i;
 
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	if (num < 0)
 	{
 		num = -num;
@@ -164,16 +174,16 @@ int print_int_two(va_list args)
 		}
 		digits[digit_index++] = num % 10;
 		num /= 10;
-		}
-		if (is_negative)
-		{
-			_putchar('-');
-			count++;
-		}
-		for (i = digit_index - 1; i >= 0; i--)
-		{
-			_putchar(digits[i] + '0');
-			count++;
-		}
-		return (count);
+	}
+	if (is_negative)
+	{
+		_putchar('-');
+		count++;
+	}
+	for (i = digit_index - 1; i >= 0; i--)
+	{
+		_putchar(digits[i] + '0');
+		count++;
+	}
+	return (count);
 }
