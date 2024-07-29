@@ -21,18 +21,13 @@ int main()
 	_printf("%s%c%c%c%s%%%s%c", "Loading ", ',', '.', '.', "99", " Please wait", '\n');
 	_printf("css%ccs%scscscs\n", 'T', "Test");
 	_printf("%c\n");
-	printf("Success!\n");
 	_printf("%!\n");
-	printf("Success!\n");
 	_printf("%");
-	printf("Success!\n");
 	_printf(str);
-	printf("Success!\n");
 	_printf("man gcc:\n%s", str);
-	printf("Success!\n");
 	_printf("%c", '\0');
-	printf("Success!\n");
 	_printf(NULL);
-	printf("Success!\n");
+	_putchar('\n');
+	_printf("End of test!\n\n");
 	return (0);
 }

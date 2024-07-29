@@ -65,13 +65,15 @@ int print_octal(va_list args)
  */
 int conditions(const char *format, int idx)
 {
-	if (!(format[idx] >= 'a' && format[idx] <= 'z') && format[idx] != ' '
-	&& format[idx] != '%' && format[idx] != 'X')
+	char valid_specifiers[] = {'c', 's', '%', 'd', 'i', 'b', 'u', 'o', 'x', 'X', ' '};
+	int i;
+
+	for (i = 0; valid_specifiers[i] != '\0'; i++)
 	{
-		return (0);
+		if (format[idx] == valid_specifiers[i])
+		{
+			return (1);
+		}
 	}
-	else
-	{
-		return (1);
-	}
+	return (0);
 }

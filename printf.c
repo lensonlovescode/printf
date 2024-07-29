@@ -27,8 +27,11 @@ int _printf(const char *format, ...)
 			idx = i + 1;
 			while (conditions(format, idx) == 0)
 			{
-				if (format[idx] == '\0')
+				if (format[idx] == '\0' || format[idx] == '!')
+				{
+					va_end(args);
 					return (-1);
+				}
 				idx++;
 			}
 			result = get_func(format, args, (idx));
