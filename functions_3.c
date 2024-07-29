@@ -65,7 +65,7 @@ int print_octal(va_list args)
  */
 int conditions(const char *format, int idx)
 {
-	char valid_specifiers[] = {'c', 's', '%', 'd', 'i', 'b', 'u', 'o', 'x', 'X', ' '};
+	char valid_specifiers[] = {'c', 's', '%', 'd', 'i', 'b', 'u', 'o', 'x', 'X', 'S'};
 	int i;
 
 	for (i = 0; valid_specifiers[i] != '\0'; i++)
@@ -76,4 +76,42 @@ int conditions(const char *format, int idx)
 		}
 	}
 	return (0);
+}
+
+/**
+ * print_str_nonprintable - Prints a string and converts non-printable characters
+ * to their hexadecimal representation.
+ * @args: argument list
+ * Return: The number of characters printed.
+ */
+int print_big_str(va_list args)
+{
+    char *str;
+    int count = 0;
+    char hex[3];
+
+    str = va_arg(args, char *);
+
+    if (str == NULL)
+        str = "(null)";
+
+    while (*str != '\0')
+    {
+        if (*str < 32 || *str >= 127)
+        {
+            _putchar('\\');
+            _putchar('x');
+            sprintf(hex, "%02X", (unsigned char)*str);
+            _putchar(hex[0]);
+            _putchar(hex[1]);
+            count += 4; // '\' 'x' and 2 hex digits
+        }
+        else
+        {
+            _putchar(*str);
+            count++;
+        }
+        str++;
+    }
+    return (count);
 }

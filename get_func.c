@@ -19,7 +19,8 @@ int get_func(const char *format_str, va_list args, int index)
 		{'d', print_int},
 		{'i', print_int_two},
 		{'u', print_uint},
-		{'o', print_octal }
+		{'o', print_octal },
+		{'S', print_big_str}
 	};
 	int j;
 	int length;
@@ -32,7 +33,7 @@ int get_func(const char *format_str, va_list args, int index)
 	j = 0;
 	length = 0;
 
-	while (j < 10)
+	while (j < 11)
 	{
 		if (format_var[j].id == format_str[index])
 		{
