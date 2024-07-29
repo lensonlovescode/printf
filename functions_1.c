@@ -35,6 +35,13 @@ int print_str(va_list args)
 	str = va_arg(args, char *);
 	count = 0;
 
+	if (str == NULL)
+	{
+		_printf("Error!");
+		return (0);
+		exit (100);
+	}
+
 	while (*str != '\0')
 	{
 		_putchar(*str);

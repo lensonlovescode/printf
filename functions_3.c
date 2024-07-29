@@ -86,32 +86,44 @@ int conditions(const char *format, int idx)
  */
 int print_big_str(va_list args)
 {
-    char *str;
-    int count = 0;
-    char hex[3];
+	char *str;
+	int count = 0;
+	char hex[3];
 
-    str = va_arg(args, char *);
+	str = va_arg(args, char *);
 
-    if (str == NULL)
-        str = "(null)";
+	if (str == NULL)
+	{
+		str = "(null)";
+	}
+	
+	while (*str != '\0')
+	{
+		if (*str < 32 || *str >= 127)
+		{
+			_putchar('\\');
+			_putchar('x');
+			hex[0] = ((*str & 0xF0) >> 4) + '0';
+			if (hex[0] > '9')
+			{
+				hex[0] += ('A' - '0' - 10);
+			}
+			_putchar(hex[0]);
 
-    while (*str != '\0')
-    {
-        if (*str < 32 || *str >= 127)
-        {
-            _putchar('\\');
-            _putchar('x');
-            sprintf(hex, "%02X", (unsigned char)*str);
-            _putchar(hex[0]);
-            _putchar(hex[1]);
-            count += 4; // '\' 'x' and 2 hex digits
-        }
-        else
-        {
-            _putchar(*str);
-            count++;
-        }
-        str++;
-    }
-    return (count);
+			hex[1] = (*str & 0x0F) + '0';
+			if (hex[1] > '9')
+			{
+				hex[1] += ('A' - '0' - 10);
+			}
+			_putchar(hex[1]);
+			count += 4;
+		}
+		else
+		{
+			_putchar(*str);
+			count++;
+		}
+		str++;
+	}
+	return (count);
 }
