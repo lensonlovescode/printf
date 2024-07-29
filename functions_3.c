@@ -79,7 +79,7 @@ int conditions(const char *format, int idx)
 }
 
 /**
- * print_str_nonprintable - Prints a string and converts non-printable characters
+ * print_big_str - Prints a string and converts non-printable characters
  * to their hexadecimal representation.
  * @args: argument list
  * Return: The number of characters printed.
@@ -94,7 +94,8 @@ int print_big_str(va_list args)
 
 	if (str == NULL)
 	{
-		str = "(null)";
+		_printf("Error!");
+		exit(100);
 	}
 	
 	while (*str != '\0')
